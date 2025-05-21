@@ -7,3 +7,15 @@ services:
     build: ./ocaml
     ports:
       - 8000:8000
+  node:
+    build: ./node
+    ports:
+      - 8001:8001
+  python:
+    build: ./python
+    ports:
+      - 8002:8002
+  go:
+    build: ./go
+    ports:
+      - 8003:8003
