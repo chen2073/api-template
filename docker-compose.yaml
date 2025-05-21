@@ -3,3 +3,7 @@ services:
     build: ./rust
     ports:
       - 3000:3000
+  ocaml:
+    build: ./ocaml
+    ports:
+      - 8000:8000

@@ -1,0 +1,4 @@
+(executable
+ (public_name api)
+ (name main)
+ (libraries api))
