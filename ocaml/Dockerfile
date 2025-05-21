@@ -1,7 +1,7 @@
 # alpine base image
-FROM alpine:3.20 AS alpine-base
+FROM alpine:3.21 AS base
 
-FROM alpine-base AS alpine-builder
+FROM base AS builder
 
 RUN apk update && \
     apk upgrade && \
@@ -20,10 +20,10 @@ COPY api/ ./
 
 RUN opam exec -- dune build
 
-FROM alpine-base AS alpine-runner
+FROM base AS runner
 
 WORKDIR /api
 
-COPY --from=alpine-builder /api/_build/default/bin/main.exe ./
+COPY --from=alpine-builder /api/_build/default/bin/main.exe ./main.exe
 
 CMD [ "/api/main.exe" ]
